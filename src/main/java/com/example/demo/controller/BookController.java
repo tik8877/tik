@@ -23,4 +23,14 @@ public class BookController {
     public Book create(@RequestBody BookRequest bookRequest) {
         return bookService.create(bookRequest);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        bookService.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public Book update(@PathVariable Long id, @RequestBody BookRequest request) {
+        return bookService.update(id, request);
+    }
 }
